@@ -6,6 +6,10 @@
 *.orig
 *.rej
 *.test
+*.wixobj
+*.wixpdb
+*.msi
+*.log
 .*.swp
 .DS_Store
 .bashrc

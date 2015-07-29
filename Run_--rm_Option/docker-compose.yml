@@ -1,0 +1,22 @@
+DisplayServerData:
+  image: suchja/x11server
+  entrypoint: true
+
+DisplayServer:
+  image: suchja/x11server
+  volumes_from:
+      - DisplayServerData
+  ports:
+      - 5900:5900
+  environment:
+      VNC_PASSWORD: AnotherDamnPW
+
+Wix:
+  image: suchja/wix
+  volumes_from:
+      - DisplayServerData
+  links:
+      - DisplayServer:xserver
+  volumes:
+      - .:/home/xclient/wix-project
+  working_dir: /home/xclient/wix-project
